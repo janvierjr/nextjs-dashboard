@@ -1,7 +1,11 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
-import Dashboard from './dashboard/Dashboard'
+import Dashboard from '@/pages/dashboard'
+import Header from '@/components/Header'
+import Sidebar from '@/components/Sidebar'
+import Login from '@/components/Login'
+
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -14,7 +18,10 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${styles.main} ${inter.className}`}>
+        <Header />
+        <Sidebar />
         <Dashboard />
+        <Login />
       </main>
     </>
   )
