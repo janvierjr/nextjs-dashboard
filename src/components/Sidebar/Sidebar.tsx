@@ -1,5 +1,9 @@
 import React from 'react';
 
+export type SidebarProps = {
+  /** to be added */
+};
+
 const Sidebar = () => {
   return (
     <ul>

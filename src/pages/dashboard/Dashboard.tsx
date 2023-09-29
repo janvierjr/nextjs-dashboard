@@ -2,7 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
-import scss from './dashboard.module.scss';
+import scss from './Dashboard.module.scss';
 
 const Dashboard = () => {
   return (
