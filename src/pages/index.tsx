@@ -20,7 +20,6 @@ const Home: React.FC = () => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <main className={`${inter.className} ${scss.main}`}>
-        <Header />
         {
           session && (
           <>

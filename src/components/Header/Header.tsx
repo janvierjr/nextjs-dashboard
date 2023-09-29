@@ -13,12 +13,19 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import AdbIcon from '@mui/icons-material/Adb';
 import { useSession, signOut, signIn } from 'next-auth/react';
+import ThemeToggleButton from '../ThemeToggleButton';
+import { useTheme } from '@mui/system';
 
 const pages = ['Analytics', 'Profile', 'Settings'];
-const settings = ['Profile', 'Account', 'Dashboard', 'DashDataut'];
 
-function Header() {
+export type HeaderProps = {
+  ColorModeContext: React.Context<{ toggleColorMode: () => void; }>;
+}
+
+const Header = (props: HeaderProps) => {
+  const {ColorModeContext} = props;
   const { data: session } = useSession();
+  const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
     null
   );
@@ -130,7 +137,7 @@ function Header() {
               </Button>
             ))}
           </Box>
-
+          <ThemeToggleButton ColorModeContext={ColorModeContext} />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open Profile Settings'>
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -156,8 +163,10 @@ function Header() {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              <MenuItem onClick={() => session ? signOut() : signIn() }>
-                <Typography textAlign='center'>{session ? 'DashDataut' : 'Login'}</Typography>
+              <MenuItem onClick={() => (session ? signOut() : signIn())}>
+                <Typography textAlign='center'>
+                  {session ? 'Logout' : 'Login'}
+                </Typography>
               </MenuItem>
             </Menu>
           </Box>

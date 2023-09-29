@@ -1,16 +1,14 @@
-import React, { createContext, useContext, useState, useMemo } from 'react';
+import React, { createContext, useState, useMemo } from 'react';
 import type { AppProps } from 'next/app';
 import { SessionProvider } from 'next-auth/react';
-/* css reset via mui and theme*/
 import {
   ThemeProvider,
   createTheme,
   CssBaseline,
 } from '@mui/material';
-import IconButton from '@mui/material/IconButton';
-import Box from '@mui/material/Box';
-import Brightness4Icon from '@mui/icons-material/Brightness4';
-import Brightness7Icon from '@mui/icons-material/Brightness7';
+import darkTheme from '@/theme/darkTheme';
+import lightTheme from '@/theme/lightTheme';
+import Header from '@/components/Header';
 
 const ColorModeContext = createContext({ toggleColorMode: () => {} });
 
@@ -26,46 +24,28 @@ const App = ({ Component, pageProps: { session, ...pageProps } }: AppProps) => {
       []
     );
 
-    const theme = useMemo(
+    const darkThemeChosen = useMemo(
       () =>
         createTheme({
-          palette: {
-            mode,
-          },
+            ...darkTheme,
+        }),
+      [mode]
+    );
+
+    const lightThemeChosen = useMemo(
+      () =>
+        createTheme({
+            ...lightTheme,
         }),
       [mode]
     );
 
     return (
       <ColorModeContext.Provider value={colorMode}>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={mode === 'dark' ? darkThemeChosen : lightThemeChosen}>
           <SessionProvider session={session}>
             <CssBaseline />
-            <Box
-              sx={{
-                display: 'flex',
-                width: '100%',
-                alignItems: 'center',
-                justifyContent: 'center',
-                bgcolor: 'background.default',
-                color: 'text.primary',
-                borderRadius: 1,
-                p: 3,
-              }}
-            >
-              {theme.palette.mode} mode
-              <IconButton
-                sx={{ ml: 1 }}
-                onClick={colorMode.toggleColorMode}
-                color='inherit'
-              >
-                {theme.palette.mode === 'dark' ? (
-                  <Brightness7Icon />
-                ) : (
-                  <Brightness4Icon />
-                )}
-              </IconButton>
-            </Box>
+            <Header ColorModeContext={ColorModeContext} />
             <Component {...pageProps} />
           </SessionProvider>
         </ThemeProvider>
