@@ -15,7 +15,7 @@ import AdbIcon from '@mui/icons-material/Adb';
 import { useSession, signOut, signIn } from 'next-auth/react';
 
 const pages = ['Analytics', 'Profile', 'Settings'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const settings = ['Profile', 'Account', 'Dashboard', 'DashDataut'];
 
 function Header() {
   const { data: session } = useSession();
@@ -61,7 +61,7 @@ function Header() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DashData
           </Typography>
 
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -117,7 +117,7 @@ function Header() {
               textDecoration: 'none',
             }}
           >
-            LOGO
+            DashData
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
@@ -157,7 +157,7 @@ function Header() {
               onClose={handleCloseUserMenu}
             >
               <MenuItem onClick={() => session ? signOut() : signIn() }>
-                <Typography textAlign='center'>{session ? 'Logout' : 'Login'}</Typography>
+                <Typography textAlign='center'>{session ? 'DashDataut' : 'Login'}</Typography>
               </MenuItem>
             </Menu>
           </Box>

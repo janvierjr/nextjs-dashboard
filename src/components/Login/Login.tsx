@@ -14,13 +14,14 @@ const Login = () => {
       </>
     );
   }
-  return
+  return (
     <>
       <h2>Please Log in</h2> <br />
       <Button variant='contained' color='primary' onClick={() => signIn()}>
         Login
       </Button>
     </>
+  )
 };
 
 export default Login;
