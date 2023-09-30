@@ -9,11 +9,12 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
-import { useSession, signOut, signIn } from 'next-auth/react';
+import DashboardIcon from '@mui/icons-material/Dashboard';import { useSession, signOut, signIn } from 'next-auth/react';
 import ThemeToggleButton from '../ThemeToggleButton';
+import { Roboto } from 'next/font/google'
 import { useTheme } from '@mui/system';
 
+const roboto = Roboto({ subsets: ['latin'], variable: '--logo-font', weight: '400' });
 
 export type HeaderProps = {
   ColorModeContext: React.Context<{ toggleColorMode: () => void; }>;
@@ -49,7 +50,7 @@ const Header = (props: HeaderProps) => {
     <AppBar position='static'>
       <Container maxWidth='xl'>
         <Toolbar disableGutters >
-          <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
           <Typography
             variant='h6'
             noWrap
@@ -58,7 +59,7 @@ const Header = (props: HeaderProps) => {
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
-              fontFamily: 'monospace',
+              fontFamily: {roboto},
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
@@ -67,7 +68,7 @@ const Header = (props: HeaderProps) => {
           >
             DashData
           </Typography>
-          <AdbIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+          <DashboardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant='h5'
             noWrap
@@ -77,7 +78,7 @@ const Header = (props: HeaderProps) => {
               mr: 2,
               display: { xs: 'flex', md: 'none' },
               flexGrow: 1,
-              fontFamily: 'monospace',
+              fontFamily: 'Roboto',
               fontWeight: 700,
               letterSpacing: '.3rem',
               color: 'inherit',
