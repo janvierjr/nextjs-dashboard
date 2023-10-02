@@ -10,10 +10,14 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import scss from '@/components/Sidebar/Sidebar.module.scss'
+import AnalyticsIcon from '@mui/icons-material/Analytics';
+import Person2Icon from '@mui/icons-material/Person2'
+import Settings from '@mui/icons-material/Settings'
+import ExitToApp from '@mui/icons-material/ExitToApp';
+import NextLink from 'next/link'
+
 export type SidebarProps = {
   /** to be added */
 };
@@ -50,6 +54,15 @@ const Sidebar = () => {
     setOpen(!open);
   };
 
+  const menuRouteList = ['analytics', 'profile', 'settings', ''];
+  const menuListTranslations = ['Data', 'Profile', 'Settings', 'Sign Out'];
+  const menuListIcons = [
+    <AnalyticsIcon />,
+    <Person2Icon />,
+    <Settings />,
+    <ExitToApp />,
+  ];
+
   return (
     <>
       <Drawer
@@ -78,44 +91,44 @@ const Sidebar = () => {
       >
         <div className={`${scss.drawerHeader}`}>
           <IconButton onClick={handleDrawerToggle}>
-            {!open ? (
-              <ChevronRightIcon />
-            ) : (
-              <ChevronLeftIcon />
-            )}
+            {!open ? <ChevronRightIcon /> : <ChevronLeftIcon />}
           </IconButton>
         </div>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {menuListTranslations.map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
-              <ListItemButton
-                sx={{
-                  minHeight: 48,
-                  justifyContent: open ? 'initial' : 'center',
-                  px: 2.5,
-                }}
-              >
-                <ListItemIcon
+              <NextLink
+                className={scss.link}
+                 href={`/dashboard/${menuRouteList[index]}`}>
+                <ListItemButton
                   sx={{
-                    minWidth: 0,
-                    mr: open ? 3 : 'auto',
-                    justifyContent: 'center',
+                    minHeight: 48,
+                    justifyContent: open ? 'initial' : 'center',
+                    px: 2.5,
                   }}
                 >
-                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                </ListItemIcon>
-                <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
-              </ListItemButton>
+                  <ListItemIcon
+                    sx={{
+                      minWidth: 0,
+                      mr: open ? 3 : 'auto',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {menuListIcons[index]}
+                  </ListItemIcon>
+                  <ListItemText
+                    primary={text}
+                    sx={{
+                      color: theme.palette.text.primary,
+                      opacity: open ? 1 : 0
+                    }} />
+                </ListItemButton>
+              </NextLink>
             </ListItem>
           ))}
         </List>
       </Drawer>
-      <ul>
-        <li>Analytics</li>
-        <li>Profile</li>
-        <li>Settings</li>
-      </ul>
     </>
   );
 };
