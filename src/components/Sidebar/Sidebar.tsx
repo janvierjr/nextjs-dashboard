@@ -17,6 +17,8 @@ import Person2Icon from '@mui/icons-material/Person2'
 import Settings from '@mui/icons-material/Settings'
 import ExitToApp from '@mui/icons-material/ExitToApp';
 import NextLink from 'next/link'
+import { useSession, signOut, signIn } from 'next-auth/react';
+
 
 export type SidebarProps = {
   /** to be added */
@@ -46,6 +48,7 @@ const closedMixin = (theme: Theme): CSSObject => ({
 });
 
 const Sidebar = () => {
+  const { data: session } = useSession();
   const mobileCheck = useMediaQuery('(min-width: 600px)');
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
@@ -62,6 +65,11 @@ const Sidebar = () => {
     <Settings />,
     <ExitToApp />,
   ];
+
+  const handleListItemButtonClick = (text: string) => {
+    text === 'Sign Out' ? signOut() : null;
+    setOpen(false);
+  };
 
   return (
     <>
@@ -100,8 +108,10 @@ const Sidebar = () => {
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <NextLink
                 className={scss.link}
-                 href={`/dashboard/${menuRouteList[index]}`}>
+                href={`/dashboard/${menuRouteList[index]}`}
+              >
                 <ListItemButton
+                  onClick={() => handleListItemButtonClick(text)}
                   sx={{
                     minHeight: 48,
                     justifyContent: open ? 'initial' : 'center',
@@ -121,8 +131,9 @@ const Sidebar = () => {
                     primary={text}
                     sx={{
                       color: theme.palette.text.primary,
-                      opacity: open ? 1 : 0
-                    }} />
+                      opacity: open ? 1 : 0,
+                    }}
+                  />
                 </ListItemButton>
               </NextLink>
             </ListItem>

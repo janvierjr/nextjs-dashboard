@@ -9,7 +9,8 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import DashboardIcon from '@mui/icons-material/Dashboard';import { useSession, signOut, signIn } from 'next-auth/react';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import { useSession, signOut, signIn } from 'next-auth/react';
 import ThemeToggleButton from '../ThemeToggleButton';
 import { Roboto } from 'next/font/google'
 import { useTheme } from '@mui/system';
