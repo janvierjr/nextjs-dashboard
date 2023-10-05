@@ -11,7 +11,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import scss from '@/components/Sidebar/Sidebar.module.scss'
+import scss from './Sidebar.module.scss'
 import AnalyticsIcon from '@mui/icons-material/Analytics';
 import Person2Icon from '@mui/icons-material/Person2'
 import Settings from '@mui/icons-material/Settings'
