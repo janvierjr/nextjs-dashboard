@@ -112,6 +112,8 @@ const Sidebar = () => {
               >
                 <ListItemButton
                   onClick={() => handleListItemButtonClick(text)}
+                  title={text}
+                  aria-label={text}
                   sx={{
                     minHeight: 48,
                     justifyContent: open ? 'initial' : 'center',

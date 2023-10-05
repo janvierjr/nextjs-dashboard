@@ -12,10 +12,9 @@ import MenuItem from '@mui/material/MenuItem';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import ThemeToggleButton from '../ThemeToggleButton';
-import { Roboto } from 'next/font/google'
 import { useTheme } from '@mui/system';
 
-const roboto = Roboto({ subsets: ['latin'], variable: '--logo-font', weight: '400' });
+
 
 export type HeaderProps = {
   ColorModeContext: React.Context<{ toggleColorMode: () => void; }>;
@@ -51,30 +50,30 @@ const Header = (props: HeaderProps) => {
     <AppBar position='static' sx={{ marginBottom: '30px' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters >
-          <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-          <Typography
-            variant='h6'
-            noWrap
-            component='a'
-            href='#app-bar-with-responsive-menu'
-            sx={{
-              mr: 2,
-              display: { xs: 'none', md: 'flex' },
-              fontFamily: {roboto},
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
-              textDecoration: 'none',
-            }}
-          >
-            DashData
-          </Typography>
-          <DashboardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
+               <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+                <Typography
+                  variant='h6'
+                  noWrap
+                  component='a'
+                  href='/dashboard'
+                  sx={{
+                    mr: 2,
+                    display: { xs: 'none', md: 'flex' },
+                    fontFamily: 'Roboto',
+                    fontWeight: 700,
+                    letterSpacing: '.3rem',
+                    color: 'inherit',
+                    textDecoration: 'none',
+                  }}
+                >
+                  DashData
+                </Typography>
+              <DashboardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
           <Typography
             variant='h5'
             noWrap
             component='a'
-            href='#app-bar-with-responsive-menu'
+            href='/dashboard'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
