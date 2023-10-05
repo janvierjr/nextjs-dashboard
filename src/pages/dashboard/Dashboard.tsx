@@ -3,24 +3,16 @@ import Box from '@mui/material/Box'
 import Grid from '@mui/material/Grid'
 import Paper from '@mui/material/Paper'
 import scss from './Dashboard.module.scss';
+import DataRibbon from '@/components/Dashboard/DataRibbon';
+import DataCard from '@/components/Dashboard/DataCard';
 
 const Dashboard = () => {
   return (
     <Box>
-      <Grid container gap={2} className={scss.topCardsContainer}>
-        <Grid>
-          <Paper className={scss.dataCard}>xs=4</Paper>
-        </Grid>
-        <Grid>
-          <Paper className={scss.dataCard}>xs=4</Paper>
-        </Grid>
-        <Grid>
-          <Paper className={scss.dataCard}>xs=4</Paper>
-        </Grid>
-      </Grid>
-      <Grid item={true} xs={12} marginY={2}>
-          <Paper className={scss.dataCard}>xs=8</Paper>
-        </Grid>
+      {/** Data Ribbon - showing numerical stats */}
+      {/** TransactionPerDay - graphic -numerical cards */}
+      {/** Transaction Donut Charts Bottom Row - break down data into fractions */}
+        <DataRibbon />
     </Box>
   );
 };
