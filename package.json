@@ -15,6 +15,10 @@
     "@emotion/styled": "^11.11.0",
     "@mui/icons-material": "^5.14.11",
     "@mui/material": "^5.14.11",
+    "@mui/x-data-grid": "^6.16.0",
+    "@mui/x-data-grid-generator": "^6.16.0",
+    "@types/chart.js": "^2.9.38",
+    "chart.js": "^4.4.0",
     "next": "latest",
     "next-auth": "^4.23.1",
     "react": "latest",
@@ -37,12 +41,14 @@
     "@types/node": "latest",
     "@types/react": "latest",
     "@types/react-dom": "latest",
+    "css-loader": "^6.8.1",
     "eslint": "latest",
     "eslint-config-next": "latest",
     "eslint-plugin-storybook": "^0.6.14",
     "prettier": "^3.0.3",
     "storybook": "^7.4.5",
     "storybook-dark-mode": "^3.0.1",
+    "style-loader": "^3.3.3",
     "typescript": "latest"
   }
 }
