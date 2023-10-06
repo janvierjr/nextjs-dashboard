@@ -6,7 +6,7 @@ export const lightOptions: ChartConfiguration['options'] = {
       beginAtZero: true,
       grid: {
         color: '#d3d3d3',
-      }
+      },
     },
     x: {
       grid: {
@@ -16,8 +16,9 @@ export const lightOptions: ChartConfiguration['options'] = {
   },
   plugins: {
     legend: {
+      position: 'bottom',
       labels: {
-        color: '#d3d3d3',
+        color: '#000',
       },
     },
   },
@@ -31,23 +32,24 @@ export const darkOptions: ChartConfiguration['options'] = {
         color: '#4f4f4f',
       },
       ticks: {
-        color: '#fff'
-      }
+        color: '#fff',
+      },
     },
     x: {
       grid: {
         color: '#4f4f4f',
       },
       ticks: {
-        color: '#fff'
+        color: '#fff',
       },
     },
   },
   plugins: {
     legend: {
+      position: 'bottom',
       labels: {
-        color: '#fff'
-      }
-    }
-  }
+        color: '#fff',
+      },
+    },
+  },
 };

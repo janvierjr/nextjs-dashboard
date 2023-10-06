@@ -12,20 +12,14 @@ export type TransactionCardType = {
   changeValue: string;
 }
 
-
-export type TransactionPerDayProps = {
-  data?: TransactionCardType;
-}
-
-const TransactionPerDay = (props: TransactionPerDayProps) => {
-  const { data } = props;
+const TransactionPerDay = () => {
   const theme = useTheme();
 
   return (
     <Grid container gap={3} className={scss.wrapper}>
       <Paper className={scss.transactions}>
         <div className={scss.chart}>
-          {/** CHART GOES HERE */}
+          <h3>Transactions Per Day</h3>
           <DataChart type={'line'} data={lineChartData} />
         </div>
         <div className={scss.cardWrapper}>

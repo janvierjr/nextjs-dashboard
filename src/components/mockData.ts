@@ -1,7 +1,5 @@
 import { months } from "@/helper/Utils";
 
-const labels = months({ count: 7 });
-
 export const lineChartData = {
   labels: months({ count: 12 }),
   datasets: [
