@@ -3,6 +3,8 @@ import scss from './TransactionsPerDay.module.scss';
 import { Card, Grid, Paper } from '@mui/material';
 import Typography from '@mui/material/Typography';
 import { useTheme } from '@mui/system';
+import DataChart from '@/components/DataChart';
+import { lineChartData } from '@/components/mockData';
 
 export type TransactionCardType = {
   title: string;
@@ -24,6 +26,7 @@ const TransactionPerDay = (props: TransactionPerDayProps) => {
       <Paper className={scss.transactions}>
         <div className={scss.chart}>
           {/** CHART GOES HERE */}
+          <DataChart type={'line'} data={lineChartData} />
         </div>
         <div className={scss.cardWrapper}>
           <Card className={scss.card} variant={'outlined'}>
