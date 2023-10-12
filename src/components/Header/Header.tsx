@@ -55,7 +55,7 @@ const Header = (props: HeaderProps) => {
                   variant='h6'
                   noWrap
                   component='a'
-                  href='/dashboard'
+                  href='/'
                   sx={{
                     mr: 2,
                     display: { xs: 'none', md: 'flex' },
@@ -73,7 +73,7 @@ const Header = (props: HeaderProps) => {
             variant='h5'
             noWrap
             component='a'
-            href='/dashboard'
+            href='/'
             sx={{
               mr: 2,
               display: { xs: 'flex', md: 'none' },
