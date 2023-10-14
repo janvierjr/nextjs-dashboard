@@ -11,7 +11,7 @@ import {
 
 const TransactionBottomRow = () => {
   return (
-    <Grid container className={scss.bottomRow}>
+    <Grid className={scss.bottomRow}>
       <Grid>
         <Paper className={scss.dataCard}>
           <p>Transactions per user type</p>
