@@ -17,8 +17,8 @@ import Person2Icon from '@mui/icons-material/Person2'
 import Settings from '@mui/icons-material/Settings'
 import ExitToApp from '@mui/icons-material/ExitToApp';
 import NextLink from 'next/link'
+import HomeIcon from '@mui/icons-material/Home';
 import { useSession, signOut, signIn } from 'next-auth/react';
-
 
 export type SidebarProps = {
   /** to be added */
@@ -57,9 +57,10 @@ const Sidebar = () => {
     setOpen(!open);
   };
 
-  const menuRouteList = ['analytics', 'profile', 'settings', ''];
-  const menuListTranslations = ['Data', 'Profile', 'Settings', 'Sign Out'];
+  const menuRouteList = ['', 'analytics', 'profile', 'settings', ''];
+  const menuListTranslations = ['Home', 'Data', 'Profile', 'Settings', 'Sign Out'];
   const menuListIcons = [
+    <HomeIcon />,
     <AnalyticsIcon />,
     <Person2Icon />,
     <Settings />,

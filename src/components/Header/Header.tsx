@@ -56,7 +56,7 @@ const Header = (props: HeaderProps) => {
               textDecoration: 'none',
               color: theme.palette.text.primary,
             }}
-            href={'/'}
+            href={'/dashboard'}
           >
             <Typography
               variant='h6'
@@ -82,7 +82,7 @@ const Header = (props: HeaderProps) => {
               textDecoration: 'none',
               color: theme.palette.text.primary,
             }}
-            href={'/'}
+            href={'/dashboard'}
           >
             <DashboardIcon
               sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}

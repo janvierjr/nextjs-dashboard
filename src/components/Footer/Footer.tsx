@@ -18,13 +18,13 @@ const Footer = () => {
       <Paper sx={{ width: '100%' }} color={'#262626'}>
         <ul role='menu'>
           <li>
-            <FooterLink href={'/'}>Home</FooterLink>
+            <FooterLink href={'/dashboard'}>Home</FooterLink>
           </li>
           <li>
             <FooterLink href={'/dashboard/analytics'}>Analytics</FooterLink>
           </li>
           <li>
-            <FooterLink href={'/dahsboard/profile'}>Profile</FooterLink>
+            <FooterLink href={'/dashboard/profile'}>Profile</FooterLink>
           </li>
           <li>
             <FooterLink href={'/dashboard/settings'}>Settings</FooterLink>

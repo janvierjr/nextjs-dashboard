@@ -1,29 +1,16 @@
-import React, {useState, useEffect} from 'react';
+import React from 'react';
 import { useSession, signIn, signOut } from 'next-auth/react';
 import Button from '@mui/material/Button';
 
 const Login = () => {
   const { data: session } = useSession();
-  const [buttonAppear, setButtonAppear] = useState(false);
-
-// delay login button to let data dashboard load
-  const DelayButtonAppearance = () => {
-    return setTimeout(() => (
-      setButtonAppear(true)
-    ), 400);
-  }
-  useEffect(() => {
-    DelayButtonAppearance()
-  }, [])
 
   if (!session) {
     return (
       <>
-        {buttonAppear &&
           <Button variant='contained' color='success' onClick={() => signIn()}>
             Login
           </Button>
-        }
       </>
     );
   }
