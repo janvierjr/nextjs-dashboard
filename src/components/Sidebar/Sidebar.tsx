@@ -60,11 +60,11 @@ const Sidebar = () => {
   const menuRouteList = ['', 'analytics', 'profile', 'settings', ''];
   const menuListTranslations = ['Home', 'Data', 'Profile', 'Settings', 'Sign Out'];
   const menuListIcons = [
-    <HomeIcon />,
-    <AnalyticsIcon />,
-    <Person2Icon />,
-    <Settings />,
-    <ExitToApp />,
+    <HomeIcon key={'home'} />,
+    <AnalyticsIcon key={'analytics'} />,
+    <Person2Icon key={'profile'} />,
+    <Settings key={'settings'} />,
+    <ExitToApp key={'logout'} />,
   ];
 
   const handleListItemButtonClick = (text: string) => {
@@ -108,6 +108,7 @@ const Sidebar = () => {
           {menuListTranslations.map((text, index) => (
             <ListItem key={text} disablePadding sx={{ display: 'block' }}>
               <NextLink
+                key={text+index}
                 className={scss.link}
                 href={`/dashboard/${menuRouteList[index]}`}
               >

@@ -1,6 +1,6 @@
 import React, {useRef, useEffect} from 'react';
 import { Chart, registerables, ChartConfiguration} from 'chart.js';
-import { darkOptions } from '@/components/DataChart/Themes';
+import { lightOptions } from '@/components/DataChart/Themes';
 import { months } from '@/helper/Utils';
 
 const DataChart = (props: ChartConfiguration) => {
@@ -14,12 +14,12 @@ const DataChart = (props: ChartConfiguration) => {
         ...props,
         options: {
           ...options,
-          ...darkOptions,
+          ...lightOptions,
         },
       });
       return () => chart.destroy();
     }
-  }, [data])
+  }, [data, options, props])
 
   return (
     <canvas ref={chartRef} />

@@ -18,7 +18,7 @@ export const lightOptions: ChartConfiguration['options'] = {
     legend: {
       position: 'bottom',
       labels: {
-        color: '#000',
+        color: '#6b8f9e',
       },
     },
   },
@@ -40,14 +40,6 @@ export const darkOptions: ChartConfiguration['options'] = {
         color: '#4f4f4f',
       },
       ticks: {
-        color: '#fff',
-      },
-    },
-  },
-  plugins: {
-    legend: {
-      position: 'bottom',
-      labels: {
         color: '#fff',
       },
     },
