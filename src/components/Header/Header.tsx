@@ -46,7 +46,7 @@ const Header = (props: HeaderProps) => {
   };
 
   return (
-    <AppBar position='static' sx={{ marginBottom: '30px' }}>
+    <AppBar position='fixed' sx={{ marginBottom: '30px' }}>
       <Container maxWidth='xl'>
         <Toolbar disableGutters>
           <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />

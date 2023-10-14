@@ -22,8 +22,8 @@ const Layout = (props: any) => {
       >
         {session && <Sidebar />}
         {props.children}
-        <Footer />
       </main>
+        <Footer />
     </>
   )
 }
