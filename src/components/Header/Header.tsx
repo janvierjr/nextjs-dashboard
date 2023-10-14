@@ -13,15 +13,14 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 import { useSession, signOut, signIn } from 'next-auth/react';
 import ThemeToggleButton from '../ThemeToggleButton';
 import { useTheme } from '@mui/system';
-
-
+import Link from 'next/link';
 
 export type HeaderProps = {
-  ColorModeContext: React.Context<{ toggleColorMode: () => void; }>;
-}
+  ColorModeContext: React.Context<{ toggleColorMode: () => void }>;
+};
 
 const Header = (props: HeaderProps) => {
-  const {ColorModeContext} = props;
+  const { ColorModeContext } = props;
   const { data: session } = useSession();
   const theme = useTheme();
   const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
@@ -49,46 +48,67 @@ const Header = (props: HeaderProps) => {
   return (
     <AppBar position='static' sx={{ marginBottom: '30px' }}>
       <Container maxWidth='xl'>
-        <Toolbar disableGutters >
-               <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
-                <Typography
-                  variant='h6'
-                  noWrap
-                  component='a'
-                  href='/'
-                  sx={{
-                    mr: 2,
-                    display: { xs: 'none', md: 'flex' },
-                    fontFamily: 'Roboto',
-                    fontWeight: 700,
-                    letterSpacing: '.3rem',
-                    color: 'inherit',
-                    textDecoration: 'none',
-                  }}
-                >
-                  DashData
-                </Typography>
-              <DashboardIcon sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }} />
-          <Typography
-            variant='h5'
-            noWrap
-            component='a'
-            href='/'
-            sx={{
-              mr: 2,
-              display: { xs: 'flex', md: 'none' },
-              flexGrow: 1,
-              fontFamily: 'Roboto',
-              fontWeight: 700,
-              letterSpacing: '.3rem',
-              color: 'inherit',
+        <Toolbar disableGutters>
+          <DashboardIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} />
+          <Link
+            style={{
+              display: 'block',
               textDecoration: 'none',
+              color: theme.palette.text.primary,
             }}
+            href={'/'}
           >
-            DashData
-          </Typography>
-          <Box sx={{display: 'flex', alignItems: 'center', marginLeft: 'auto'}}>
-            <ThemeToggleButton  ColorModeContext={ColorModeContext} />
+            <Typography
+              variant='h6'
+              noWrap
+              component='p'
+              sx={{
+                mr: 2,
+                display: { xs: 'none', md: 'flex' },
+                fontFamily: 'Roboto',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              DashData
+            </Typography>
+          </Link>
+          <Link
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              textDecoration: 'none',
+              color: theme.palette.text.primary,
+            }}
+            href={'/'}
+          >
+            <DashboardIcon
+              sx={{ display: { xs: 'flex', md: 'none' }, mr: 1 }}
+            />
+            <Typography
+              variant='h5'
+              noWrap
+              component='p'
+              sx={{
+                mr: 2,
+                display: { xs: 'flex', md: 'none' },
+                flexGrow: 1,
+                fontFamily: 'Roboto',
+                fontWeight: 700,
+                letterSpacing: '.3rem',
+                color: 'inherit',
+                textDecoration: 'none',
+              }}
+            >
+              DashData
+            </Typography>
+          </Link>
+          <Box
+            sx={{ display: 'flex', alignItems: 'center', marginLeft: 'auto' }}
+          >
+            <ThemeToggleButton ColorModeContext={ColorModeContext} />
           </Box>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title='Open Profile Settings'>
@@ -126,5 +146,5 @@ const Header = (props: HeaderProps) => {
       </Container>
     </AppBar>
   );
-}
+};
 export default Header;
