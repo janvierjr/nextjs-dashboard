@@ -43,7 +43,7 @@ const Footer = () => {
             <Button
               variant={'text'}
               color={session ? 'error' : 'success'}
-              onClick={() => (session ? signOut : signIn)}
+              onClick={() => (session ? signOut() : signIn())}
             >
               {session ? 'Sign Out' : 'Sign In'}
             </Button>
