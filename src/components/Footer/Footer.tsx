@@ -30,16 +30,20 @@ const Footer = () => {
             <FooterLink href={'/dashboard/settings'}>Settings</FooterLink>
           </li>
           <li>
-            <FooterLink href={'/#termsandconditions'}>Terms & Conditions</FooterLink>
+            <FooterLink href={'/dashboard/termsandconditions'}>
+              Terms & Conditions
+            </FooterLink>
           </li>
           <li>
-            <FooterLink href={'/#accessibilitystatement'}>Accessibility Statement</FooterLink>
+            <FooterLink href={'/dashboard/accessibilitystatement'}>
+              Accessibility Statement
+            </FooterLink>
           </li>
           <li>
             <Button
               variant={'text'}
               color={session ? 'error' : 'success'}
-              onClick={() => session ? signOut : signIn}
+              onClick={() => (session ? signOut : signIn)}
             >
               {session ? 'Sign Out' : 'Sign In'}
             </Button>
