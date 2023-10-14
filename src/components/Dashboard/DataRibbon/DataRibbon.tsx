@@ -6,13 +6,15 @@ import scss from './DataRibbon.module.scss';
 const DataRibbon = () => {
   return (
     <Grid container gap={3} className={scss.dataRibbon}>
-      <DataCard
-        title={'Total Sales'}
-        value={'564'}
-        description={
-          'The totals of all DashData products in the current financial year'
-        }
-      />
+      <Grid>
+        <DataCard
+          title={'Total Sales'}
+          value={'564'}
+          description={
+            'The totals of all DashData products in the current financial year'
+          }
+        />
+      </Grid>
       <Grid>
         <DataCard
           title={'Total Value'}
