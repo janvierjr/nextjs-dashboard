@@ -23,7 +23,7 @@ const Layout = (props: any) => {
         {session && <Sidebar />}
         {props.children}
       </main>
-        <Footer />
+      <Footer />
     </>
   )
 }
