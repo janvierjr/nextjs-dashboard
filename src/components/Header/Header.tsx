@@ -23,22 +23,13 @@ const Header = (props: HeaderProps) => {
   const { ColorModeContext } = props;
   const { data: session } = useSession();
   const theme = useTheme();
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(
-    null
-  );
+
   const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(
     null
   );
 
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
   const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
     setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
   };
 
   const handleCloseUserMenu = () => {
@@ -135,6 +126,17 @@ const Header = (props: HeaderProps) => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
+              <MenuItem>
+                <Link
+                  href={'/dashboard/profile'}
+                  style={{
+                    color: theme.palette.text.primary,
+                    textDecoration: 'none',
+                  }}
+                >
+                  <Typography textAlign='center'>Profile</Typography>
+                </Link>
+              </MenuItem>
               <MenuItem onClick={() => (session ? signOut() : signIn())}>
                 <Typography textAlign='center'>
                   {session ? 'Logout' : 'Login'}
