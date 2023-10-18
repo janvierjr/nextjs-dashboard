@@ -1,6 +1,7 @@
 .layout {
   max-width: 85rem;
   margin: 6em auto;
+  min-height: calc(100vh - 34px);
 
   @media screen and (min-width: 1700px) {
     max-width: 92rem;
