@@ -29,15 +29,15 @@ const Profile = () => {
     receiveEmails: false,
   });
 
-  const handleSubmit = (event: any) => {
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     console.log(formData);
   };
-  const handleFormChange = (event: any) => {
+  const handleFormChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value, checked } = event.target;
-    setFormData(prevState => ({
+    setFormData((prevState) => ({
       ...prevState,
-      [name]: name === "receiveEmails" ? checked : value,
+      [name]: name === 'receiveEmails' ? checked : value,
     }));
   };
 
