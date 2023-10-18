@@ -19,13 +19,14 @@ bun dev
 ## Spin Up App Locally
 http://localhost:3000/
 
-## Environment Variables Needed
-# Google Credentials
-GOOGLE_ID=<googleID>
-GOOGLE_SECRET=<googleSecret>
+## Environment Variables Req'd
 
-# Next Auth
-NEXTAUTH_URL=<nextAuthURL>
-NEXTAUTH_SECRET=<SECRET>
+```js
+// Google Credentials
+GOOGLE_ID='googleID'
+GOOGLE_SECRET='googleSecret'
+// Next Auth
+NEXTAUTH_URL='nextAuthURL'
+NEXTAUTH_SECRET='SECRET'
 
 
