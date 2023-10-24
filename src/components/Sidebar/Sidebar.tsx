@@ -58,7 +58,7 @@ const Sidebar = () => {
   };
 
   const menuRouteList = ['', 'analytics', 'profile', 'settings', ''];
-  const menuListTranslations = ['Home', 'Data', 'Profile', 'Settings', 'Sign Out'];
+  const menuListTranslations = ['Home', 'Analytics', 'Profile', 'Settings', 'Sign Out'];
   const menuListIcons = [
     <HomeIcon key={'home'} />,
     <AnalyticsIcon key={'analytics'} />,
